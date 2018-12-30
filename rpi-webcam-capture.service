@@ -1,0 +1,10 @@
+[Unit]
+Description=RPi Webcam Capture
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ffmpeg -hide_banner -thread_queue_size 512 -s 1280x720 -f v4l2 -i /dev/video0 http://localhost:8090/feed1.ffm
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

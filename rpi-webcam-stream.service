@@ -1,0 +1,11 @@
+[Unit]
+Description=RPi Webcam Stream
+Requires=rpi-webcam-capture.service
+Before=rpi-webcam-capture.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ffserver -f /etc/rpi-webcam-stream/ffserver.conf
+
+[Install]
+WantedBy=multi-user.target
